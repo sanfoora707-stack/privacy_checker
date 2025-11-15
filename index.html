@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>TTF – نحو المستقبل | فحص الخصوصية</title>
+
+    <!-- TailwindCSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        body {
+            font-family: 'Tajawal', sans-serif;
+        }
+    </style>
+
+    <script>
+        // === تبديل اللغة ===
+        function switchLang(lang) {
+            document.querySelectorAll("[data-ar]").forEach(el => {
+                el.innerText = lang === "ar" ? el.dataset.ar : el.dataset.en;
+            });
+
+            // تغيير اتجاه الصفحة
+            if (lang === "ar") {
+                document.documentElement.dir = "rtl";
+                document.documentElement.lang = "ar";
+            } else {
+                document.documentElement.dir = "ltr";
+                document.documentElement.lang = "en";
+            }
+        }
+    </script>
+
+</head>
+
+<body class="bg-gray-50">
+
+    <!-- Header -->
+    <header class="w-full bg-white shadow-sm py-4 border-b">
+        <div class="max-w-6xl mx-auto flex items-center justify-between px-6">
+
+            <!-- Logo + Brand -->
+            <div class="flex items-center space-x-4 space-x-reverse">
+                <img src="/static/logo.png" class="w-16 h-16 object-contain" alt="TTF Logo">
+                <div>
+                    <h1 data-ar="نحو المستقبل" data-en="Toward The Future" class="text-xl font-bold text-gray-800">
+                        نحو المستقبل
+                    </h1>
+                    <p class="text-sm text-gray-600">TTF – Toward The Future</p>
+                </div>
+            </div>
+
+            <!-- Language Switch -->
+            <div class="flex gap-2">
+                <button onclick="switchLang('ar')" 
+                        class="px-4 py-1 border rounded-lg hover:bg-gray-100">
+                    عربي
+                </button>
+
+                <button onclick="switchLang('en')" 
+                        class="px-4 py-1 border rounded-lg hover:bg-gray-100">
+                    EN
+                </button>
+            </div>
+
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="max-w-4xl mx-auto text-center mt-16 px-6">
+        <h2 data-ar="أداة فحص الخصوصية للمواقع" data-en="Website Privacy Scanner"
+            class="text-4xl font-extrabold text-gray-900 leading-relaxed">
+            أداة فحص الخصوصية للمواقع
+        </h2>
+
+        <p data-ar="قم بتحليل أي موقع لمعرفة السكربتات وأدوات التتبع ودرجة الأمان."
+           data-en="Analyze any website to detect scripts, trackers, and privacy level."
+           class="mt-3 text-gray-600 text-lg">
+           قم بتحليل أي موقع لمعرفة السكربتات وأدوات التتبع ودرجة الأمان.
+        </p>
+    </section>
+
+    <!-- Scanner Box -->
+    <div class="max-w-3xl mx-auto mt-10 bg-white shadow-xl rounded-xl p-10 border-t-8"
+         style="border-color: #A64B27;">
+
+        <form action="/scan" method="POST" class="flex flex-col md:flex-row gap-4">
+
+            <input 
+                type="text" 
+                name="url" 
+                data-ar="أدخل رابط الموقع…" 
+                data-en="Enter website URL…" 
+                placeholder="أدخل رابط الموقع…"
+                class="flex-1 px-4 py-3 border rounded-lg focus:ring-2 focus:ring-[#355E3B] focus:outline-none text-gray-700"
+                required
+            >
+
+            <button 
+                type="submit" 
+                class="px-8 py-3 rounded-lg font-semibold text-white shadow-lg transition"
+                style="background-color: #F2C230;">
+                <span data-ar="فحص" data-en="Scan">فحص</span>
+            </button>
+
+        </form>
+
+        <p class="text-gray-500 mt-5 text-sm text-center">
+            مثال: https://example.com
+        </p>
+    </div>
+
+    <!-- Footer -->
+    <footer class="mt-20 mb-10 text-center">
+        <p class="text-gray-600">
+            TTF © 
+            <span data-ar="جميع الحقوق محفوظة" data-en="All Rights Reserved">جميع الحقوق محفوظة</span>
+            – 
+            <span data-ar="نحو المستقبل (TTF MCT)" data-en="Toward The Future (TTF MCT)">
+                نحو المستقبل (TTF MCT)
+            </span>
+        </p>
+    </footer>
+
+</body>
+</html>
